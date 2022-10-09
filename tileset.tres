@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dmyoua2jjuhpv"]
+
+[ext_resource type="Texture2D" uid="uid://cq7wm7gubk316" path="res://tilemap.png" id="1_kb327"]
+[ext_resource type="PackedScene" uid="uid://cmij5nj4oe5pc" path="res://door_tile.tscn" id="1_rssxk"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bdoks"]
+scenes/1/scene = ExtResource("1_rssxk")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iitgo"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g0n0d"]
+vertices = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_be7og"]
+texture = ExtResource("1_kb327")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_iitgo")
+1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_g0n0d")
+
+[resource]
+tile_size = Vector2i(128, 128)
+navigation_layer_0/layers = 1
+sources/1 = SubResource("TileSetAtlasSource_be7og")
+sources/0 = SubResource("TileSetScenesCollectionSource_bdoks")

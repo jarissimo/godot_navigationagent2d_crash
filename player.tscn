@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfcpe2bt3mjlj"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_65kvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ha1x"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_65kvv")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8ha1x")
+
+[node name="Polygon2d" type="Polygon2D" parent="."]
+position = Vector2(-279, -430)
+polygon = PackedVector2Array(289, 420, 289, 440, 269, 440, 269, 420)
+
+[node name="NavigationAgent2d" type="NavigationAgent2D" parent="."]
+path_desired_distance = 20.0
+target_desired_distance = 19.1
+path_max_distance = 20.0
+avoidance_enabled = true
+
+[connection signal="velocity_computed" from="NavigationAgent2d" to="." method="_on_navigation_agent_2d_velocity_computed"]
